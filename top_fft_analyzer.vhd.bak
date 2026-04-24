@@ -1,0 +1,39 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity top_fft_analyzer is
+    Port (
+        -- Input System
+        clk       : in  STD_LOGIC;  -- Clock utama dari board Cyclone IV (50 MHz)
+        rst_n     : in  STD_LOGIC;  -- Tombol reset sistem (aktif low / ditekan = 0)
+        
+        -- Antarmuka Komunikasi PC
+        uart_rx   : in  STD_LOGIC;  -- Jalur menerima data audio serial dari Python
+        
+        -- Output System
+        uart_tx   : out STD_LOGIC;  -- Jalur mengirim data magnitude serial ke Python
+        
+        -- Indikator Debugging (Opsional tapi sangat disarankan)
+        led_idle  : out STD_LOGIC;  -- Menyala saat sistem standby
+        led_done  : out STD_LOGIC   -- Menyala sebentar saat 1 frame FFT selesai dikirim
+    );
+end top_fft_analyzer;
+
+architecture Structural of top_fft_analyzer is
+
+    -- =========================================================================
+    -- DEKLARASI KOMPONEN (Nanti modul FSM, UART, dll ditaruh di sini)
+    -- =========================================================================
+    
+    -- =========================================================================
+    -- DEKLARASI SINYAL INTERNAL (Kabel penghubung antar modul)
+    -- =========================================================================
+
+begin
+
+    -- =========================================================================
+    -- INSTANSIASI & PORT MAPPING (Menyambungkan komponen dengan sinyal)
+    -- =========================================================================
+
+end Structural;
